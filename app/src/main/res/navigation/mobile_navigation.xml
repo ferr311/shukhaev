@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/action_navigation_random">
+
+    <fragment
+        android:id="@+id/action_navigation_random"
+        android:name="com.shukhaev.tinkofftz.ui.random.RandomFragment"
+        android:label="@string/title_random"
+        tools:layout="@layout/fragment_random" />
+
+    <fragment
+        android:id="@+id/action_navigation_best"
+        android:name="com.shukhaev.tinkofftz.ui.best.BestFragment"
+        android:label="@string/title_best"
+        tools:layout="@layout/fragment_best" />
+
+    <fragment
+        android:id="@+id/action_navigation_latest"
+        android:name="com.shukhaev.tinkofftz.ui.latest.LatestFragment"
+        android:label="@string/title_latest"
+        tools:layout="@layout/fragment_latest" />
+</navigation>
