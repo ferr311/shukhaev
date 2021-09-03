@@ -6,22 +6,27 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.shukhaev.tinkofftz.model.Post
-import com.shukhaev.tinkofftz.network.DevLifeApi
+import com.shukhaev.tinkofftz.repo.Repository
+import com.shukhaev.tinkofftz.repo.Resource
 import kotlinx.coroutines.launch
 
-class LatestViewModel @ViewModelInject constructor(private val api: DevLifeApi) : ViewModel() {
+class LatestViewModel @ViewModelInject constructor(private val repository: Repository) :
+    ViewModel() {
 
     private val postsListLiveData: MutableLiveData<List<Post>> = MutableLiveData()
-    val posts: LiveData<List<Post>>
-        get() = postsListLiveData
+    val posts: LiveData<List<Post>> = postsListLiveData
+
+    private val errorLiveData: MutableLiveData<String> = MutableLiveData()
+    val error: LiveData<String> = errorLiveData
 
     init {
         getLatestGifs()
     }
 
     private fun getLatestGifs() = viewModelScope.launch {
-        val res = api.getLatestGif().result
-        postsListLiveData.postValue(res)
-
+        when (val res = repository.getLatestGif()) {
+            is Resource.Error -> errorLiveData.value = res.message
+            is Resource.Success -> postsListLiveData.postValue(res.data)
+        }
     }
 }

@@ -3,54 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.random.RandomFragment">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/tv_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_image"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_image"
+        app:layout_constraintEnd_toStartOf="@+id/btn_back"
         tools:text="@tools:sample/cities" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
         android:tint="@color/purple_500"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_forward"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_replay" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_replay"
+        tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btn_forward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"
         android:tint="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_back"
         app:srcCompat="@drawable/ic_forward" />
 
     <ProgressBar
@@ -63,4 +66,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

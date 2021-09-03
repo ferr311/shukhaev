@@ -40,19 +40,16 @@ class RandomFragment : Fragment(R.layout.fragment_random) {
             randomViewModel.postEvent.collect { event ->
                 when (event) {
                     is LoadEvent.Loading -> showLoading(true)
-                    is LoadEvent.Error -> Snackbar.make(
-                        requireView(),
-                        event.msg,
-                        Snackbar.LENGTH_SHORT
-                    ).show()
+                    is LoadEvent.Error -> {
+                        showLoading(false)
+                        Snackbar.make(requireView(), event.msg, Snackbar.LENGTH_SHORT).show()
+                    }
                     is LoadEvent.FirstElement -> {
                         binding.btnBack.visibility = View.INVISIBLE
                     }
                 }
             }
-
         }
-
     }
 
     private fun onBtnNextClick() {

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidApps/shukhaev/app/src/main/res/layout-land/fragment_random.xml" value="0.4178272980501393" />
+        <entry key="..\:/AndroidApps/shukhaev/app/src/main/res/layout/fragment_best.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidApps/shukhaev/app/src/main/res/layout/fragment_latest.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidApps/shukhaev/app/src/main/res/layout/fragment_random.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
